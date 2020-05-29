@@ -1,0 +1,27 @@
+{
+  "name": "apichallenges",
+  "version": "1.0.0",
+  "description": "Make three apis",
+  "main": "hellonode.js",
+  "scripts": {
+    "test": "hello"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NicollahSekete/nodeJSchallenge.git"
+  },
+  "keywords": [
+    "node",
+    "challenge",
+    "api"
+  ],
+  "author": "Nicollah Sekete",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/NicollahSekete/nodeJSchallenge/issues"
+  },
+  "homepage": "https://github.com/NicollahSekete/nodeJSchallenge#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
