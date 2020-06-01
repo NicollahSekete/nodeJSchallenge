@@ -1,0 +1,21 @@
+
+
+.navbar ul li { /*this is targeting the .navbar class with ul li to be modified*/
+    list-style-type: none;
+    display: inline-block;
+}
+.navbar li a {
+    text-decoration: none;
+    padding: 15px 5px;
+}
+.lyricsss{
+    text-align: center;
+    margin-left: 2cm;
+    margin-right: 2cm;
+}
+.CTA{
+    align-items: center;
+}
+.indexBody{
+    background: peachpuff;
+}

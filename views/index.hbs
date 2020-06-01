@@ -1,16 +1,21 @@
-<div class="navbar">
-        <!--div.navbar-->
-        <ul>
-          <li><a href="ele">RANDOM JOKE API</a></li>
-          <li><a href="/">SONG LYRICS API</a></li>
-          <li><a href="dogs">PICTURES OF DOGS API</a></li>
-        </ul>
-<div>
-  <h1>LOOK UP LYRICS</h1>
-  <form action="">
-    <input type="text" id="artist" placeholder="What artist?">
-    <input type="text" id="song" placeholder="what song?">
-    <button id="button">Search lyrics</button>
-  </form>
-  {{lyrics}}
-</div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body class="indexBody">
+
+    <form action="/" method="post">
+    <input type ="text" name="artist" placeholder="artist">
+    <input type="text" name="song" placeholder="song">
+    <input type="submit" value="submit">
+    </form>
+   
+        {{#each data}}
+        <p>{{this}}</p>
+        {{/each}}
+    
+</body>
+</html>

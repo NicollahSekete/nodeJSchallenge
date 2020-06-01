@@ -2,11 +2,18 @@ const express = require('express');
 const hbs = require('express-handlebars');
 const path = require('path')
 const app = express();
+const bodyParser = require('body-parser'); 
+
+
 require('dotenv').config();
 const ele =require('./lib/ele');
 const dogs =require('./lib/dogs')
-const nasa = require('./lib/nasa');
+const songLyrics = require('./lib/nasa');
 
+
+app.use(bodyParser.urlencoded({extended: false}));
+// ignore data types and make EVERYTHING a string
+app.use(bodyParser.json());
 
 app.use(express.static(path.join(__dirname, 'public')));
 
@@ -22,12 +29,23 @@ app.set('view engine', '.hbs');
 //three new APIS
 
 app.get('/', async(req, res) => {
-    let data = await nasa.nasaNews();
-    console.log(data)
-    let lyrics =data.lyrics
-    //res.send(data);
-    res.render('index',{data, lyrics})
+    res.render('index',)
 });
+
+app.post('/', async (req, res) => {
+    let song = req.body.song;
+    let artist =req.body.artist;
+    let data = await songLyrics(song , artist);
+
+    let lyrics = data.lyrics;
+    res.render('index', 
+    {data: 
+        {lyrics}
+    });
+})
+
+
+
 
 app.get('/ele', async(req, res) => {
     let data = await ele.randomElephant();
@@ -50,6 +68,6 @@ app.get('/dogs', async(req, res) => {
 
 
 
-app.listen(3008, () => {
-	console.log('listening on port 3008');
+app.listen(8000, () => {
+	console.log('listening on port 8000');
 });
