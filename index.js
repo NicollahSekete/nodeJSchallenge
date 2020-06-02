@@ -6,8 +6,11 @@ const bodyParser = require('body-parser');
 
 
 require('dotenv').config();
+
 const ele =require('./lib/ele');
-const dogs =require('./lib/dogs')
+const poems =require('./lib/poems');
+
+const dogAll =require('./lib/dogs');
 const songLyrics = require('./lib/nasa');
 
 
@@ -26,7 +29,9 @@ app.set('view engine', '.hbs');
 
 
 
-//three new APIS
+// APIS
+
+//lyrics api
 
 app.get('/', async(req, res) => {
     res.render('index',)
@@ -36,15 +41,39 @@ app.post('/', async (req, res) => {
     let song = req.body.song;
     let artist =req.body.artist;
     let data = await songLyrics(song , artist);
-
+    
     let lyrics = data.lyrics;
     res.render('index', 
     {data: 
         {lyrics}
     });
-})
+
+});
 
 
+//dogs api
+
+app.get('/dogs', async(req, res) => {
+    //res.send(data);
+    res.render('dogs')
+});
+
+app.post('/dogs', async (req, res) => {
+    let breed =req.body.breed
+    let data = await dogAll(breed);
+
+    let message = data.message;
+    
+    res.render('dogs', 
+    {data: 
+        {message}
+    });
+
+});
+
+
+
+//joke api
 
 
 app.get('/ele', async(req, res) => {
@@ -56,14 +85,15 @@ app.get('/ele', async(req, res) => {
     res.render('ele', {data, joke, punchline})
 });
 
-app.get('/dogs', async(req, res) => {
-    let data = await dogs.dogAll();
+
+//poems api
+
+app.get('/poems', async(req, res) =>{
+    let data = await poems.randomPoem();
     console.log(data)
-    let dogPic1 = data.message[0]
-    let dogPic2 = data.message[1]
-    let dogPic3 = data.message[2]
-    //res.send(data);
-    res.render('dogs',{data, dogPic1, dogPic3 , dogPic2})
+    let content = data.lines
+
+    res.render('poems', {content})
 });
 
 

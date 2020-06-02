@@ -6,9 +6,13 @@
   <title>Document</title>
 </head>
 <body class="indexBody">
+  
+ 
+  <h1>Look up Lyrics!</h1>
+  <p>search for a artist and their song to get the lyrics.</p>
 
     <form action="/" method="post">
-    <input type ="text" name="artist" placeholder="artist">
+    <input type ="name" name="artist" placeholder="artist">
     <input type="text" name="song" placeholder="song">
     <input type="submit" value="submit">
     </form>
@@ -16,6 +20,9 @@
         {{#each data}}
         <p>{{this}}</p>
         {{/each}}
+
+
+      
     
 </body>
 </html>

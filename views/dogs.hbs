@@ -6,20 +6,17 @@
   <title>Document</title>
 </head>
 <body class="indexBody">
-  <div class="navbar">
-        <!--div.navbar-->
-        <ul>
-          <li><a href="ele">RANDOM JOKE API</a></li>
-          <li><a href="/">SONG LYRICS API</a></li>
-          <li><a href="dogs">PICTURES OF DOGS API</a></li>
-        </ul>
-  <div>
+  
     <h1>DOGS</h1>
-    <p>look at these dogs!</p>
-    <div class="doggydogs">
-      <img id="doggy" src={{dogPic}} alt="nasa-pic1" height="400px" width="500px"/>
-      <img id="doggy" src={{dogPic2}} alt="nasa-pic2" height="400px" width="500px"/>
-      <img id="doggy" src={{dogPic3}} alt="nasa-pic3" height="400px" width="500px"/>
-</div>
+    <p>Search a dog breed</p>
+   <form action="/dogs" method="post">
+    <input type ="name" name="breed" placeholder="breed">
+    <input type="submit" value="submit">
+    </form>
+    <div>
+      {{#each data}}
+        <p>{{this}}</p>
+        {{/each}}
+    </div>
 </body>
 </html>
